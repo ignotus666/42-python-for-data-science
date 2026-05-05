@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ft_package"
+version = "0.0.1"
+description = "A sample test package"
+authors = [
+  {name = "dhanlon"},
+  {email = " dhanlon@student.42urduliz.com "},
+]
+readme = "README.md"
+license = "MIT"
+classifiers = []
+
+[project.urls]
+Homepage = "https://github.com/ignotus666/ft_package"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["ft_package"]
