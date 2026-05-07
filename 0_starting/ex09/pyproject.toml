@@ -11,7 +11,7 @@ authors = [
   {email = " dhanlon@student.42urduliz.com "},
 ]
 readme = "README.md"
-license = "MIT"
+license = {text = "MIT"}
 classifiers = []
 
 [project.urls]

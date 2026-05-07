@@ -7,3 +7,7 @@ def count_in_list(lst, item):
     """
 
     return lst.count(item)
+
+
+if __name__ == "__main__":
+    count_in_list()
