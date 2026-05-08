@@ -15,5 +15,6 @@ try:
         assert False, "AssertionError: argument is not an integer"
 except AssertionError as e:
     print(e)
-    
-#outer try/except block is to catch the AssertionError and print without traceback
+
+# outer try/except block is to catch the AssertionError and
+# print without traceback
