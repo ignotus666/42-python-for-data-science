@@ -1,5 +1,3 @@
-import numpy
-
 
 def give_bmi(height: list[int | float],
              weight: list[int | float]) -> list[int | float]:
@@ -11,8 +9,16 @@ def give_bmi(height: list[int | float],
 
     bmi_list = []
     for h, w in zip(height, weight):
-        bmi = h / (w * w)
+        bmi = w / (h * h)
         bmi_list.append(bmi)
     return (bmi_list)
 
+
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
+    for item in bmi:
+        assert isinstance(item, (int, float)), "AssertionError"
+    assert isinstance(limit, int)
+    limit_list = []
+    for value in bmi:
+        limit_list.append(value > limit)
+    return (limit_list)
