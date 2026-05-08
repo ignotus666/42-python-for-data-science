@@ -1,6 +1,7 @@
 
 def give_bmi(height: list[int | float],
              weight: list[int | float]) -> list[int | float]:
+    assert isinstance(height, list) and isinstance(weight, list)
     assert len(height) == len(weight)
     for item in height:
         assert isinstance(item, (int, float)), "AssertionError"
