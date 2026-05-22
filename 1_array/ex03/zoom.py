@@ -7,9 +7,11 @@ def main():
         starting_img = ft_load("animal.jpeg")
         print(starting_img)
 
-        zoomed_img = starting_img[40:490, 440:940, 0]
-        print(f"New shape after slicing: {zoomed_img.shape} or {zoomed_img.shape[:2]}")
-        plt.imshow(zoomed_img, "gray")
+        zoomed_img = starting_img[40:490, 440:940, :1]
+        print(f"New shape after slicing: {zoomed_img.shape} "
+              f"or {zoomed_img.shape[:2]}")
+
+        plt.imshow(zoomed_img, cmap='gray')
         plt.show()
 
     except AssertionError as e:
