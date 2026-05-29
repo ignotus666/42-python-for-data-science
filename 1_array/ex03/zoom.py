@@ -7,7 +7,7 @@ def main():
         starting_img = ft_load("animal.jpeg")
         print(starting_img)
 
-        zoomed_img = starting_img[40:490, 440:940, :1]
+        zoomed_img = starting_img[25:525, 440:940, :1]
         print(f"New shape after slicing: {zoomed_img.shape} "
               f"or {zoomed_img.shape[:2]}")
 
