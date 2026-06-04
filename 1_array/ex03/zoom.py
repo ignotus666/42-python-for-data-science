@@ -10,6 +10,7 @@ def main():
         zoomed_img = starting_img[25:525, 440:940, :1]
         print(f"New shape after slicing: {zoomed_img.shape} "
               f"or {zoomed_img.shape[:2]}")
+        print(zoomed_img)
 
         plt.imshow(zoomed_img, cmap='gray')
         plt.show()
