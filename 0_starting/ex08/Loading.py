@@ -15,7 +15,7 @@ def ft_tqdm(lst: range) -> None:
 
         percent = i / total
         percent_str = f"{int(percent * 100)}%"
-        # Adding a space before the count to match your requested format
+        # Add a space before the count to match requested format
         stats_str = f" {i}/{total}"
 
         # Calculate space for the bar: cols - percent - stats - brackets

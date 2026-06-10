@@ -1,5 +1,6 @@
 import sys
 
+
 try:
     if len(sys.argv) < 2:
         sys.exit(0)  # Exit silently if no argument
@@ -15,6 +16,3 @@ try:
         assert False, "AssertionError: argument is not an integer"
 except AssertionError as e:
     print(e)
-
-# outer try/except block is to catch the AssertionError and
-# print without traceback
