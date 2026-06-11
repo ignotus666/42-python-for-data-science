@@ -19,21 +19,16 @@ def main():
         print("TypeError:", e)
     except ValueError as e:
         print("ValueError:", e)
+    except Exception as e:
+        print("Exception:", e)
 
     else:
-        # 3. Plotting setup
         country_data.plot()
-        # 4. Set exact X-axis range and steps (1800 to 2080 in steps of 40)
-        # Note: stop=2081 ensures 2080 is included in the labels
         plt.xlim(1780, 2120)
         plt.xticks(np.arange(1800, 2081, 40))
-
-        # 5. Set exact Y-axis range and steps (30 to 90 in steps of 10)
-        # Note: stop=91 ensures 90 is included in the labels
         plt.ylim(25, 95)
         plt.yticks(np.arange(30, 91, 10))
 
-        # 6. Labels and display
         plt.title("Spain Life expectancy Projections")
         plt.xlabel("Year")
         plt.ylabel("Life expectancy")

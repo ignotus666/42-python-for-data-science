@@ -14,4 +14,7 @@ def load(path: str) -> pd.DataFrame:
     except AssertionError as e:
         print("AssertionError:", e)
         return None
+    except Exception as e:
+        print("Exception:", e)
+        return None
     

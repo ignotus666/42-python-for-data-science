@@ -4,15 +4,15 @@ import pandas as pd
 from load_csv import load
 
 
-def convert_vals(val: str):
+def convert_vals(val: str) -> int:
     if val.endswith("k"):
-        return float(val[:-1]) * 1e3
+        return int(float(val[:-1]) * 1e3)
     elif val.endswith("M"):
-        return float(val[:-1]) * 1e6
+        return int(float(val[:-1]) * 1e6)
     elif val.endswith("B"):
-        return float(val[:-1]) * 1e9
+        return int(float(val[:-1]) * 1e9)
     else:
-        return float(val)
+        return int(float(val))
 
 def main():
     try:
@@ -34,6 +34,8 @@ def main():
         print("TypeError:", e)
     except ValueError as e:
         print("ValueError:", e)
+    except Exception as e:
+        print("Exception:", e)
 
     else:
         spain_data.plot(label="Spain")
@@ -42,8 +44,8 @@ def main():
         plt.xlim(1790, 2060)
         plt.xticks(range(1800, 2051, 40))
         
-        plt.ylim(0, max_pop + 10000000)
-        plt.yticks(range(1, 81000000, 20000000))
+        plt.ylim(0, max_pop + 2000000)
+        plt.yticks(range(1, max_pop, 20000000))
 
         plt.title("Population Projections")
         plt.xlabel("Year")
