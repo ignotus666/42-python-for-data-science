@@ -1,5 +1,13 @@
 import numpy as np
-from PIL import Image
+import matplotlib.pyplot as plt
+
+
+def ft_original(array):
+    image = array
+    plt.subplot(3, 2, 1)
+    plt.imshow(image)
+    plt.axis('off')
+    plt.title("Figure VIII.1: Original", y=-0.1)
 
 
 def ft_invert(array):
@@ -7,7 +15,10 @@ def ft_invert(array):
     Inverts the color of the image received.
     """
     image = 255 - array
-    Image.fromarray(image).show()
+    plt.subplot(3, 2, 2)
+    plt.imshow(image)
+    plt.axis('off')
+    plt.title("Figure VIII.2: Invert", y=-0.1)
 
 
 def ft_red(array):
@@ -15,9 +26,14 @@ def ft_red(array):
     Keeps only the red channel of the image received.
     """
     red_channel = array[:, :, 0]
-    image = np.zeros_like(array)
+    image = array.copy()
     image[:, :, 0] = red_channel
-    Image.fromarray(image).show()
+    image[:, :, 1] = 0
+    image[:, :, 2] = 0
+    plt.subplot(3, 2, 3)
+    plt.imshow(image)
+    plt.axis('off')
+    plt.title("Figure VIII.3: Red", y=-0.1)
 
 
 def ft_green(array):
@@ -27,9 +43,12 @@ def ft_green(array):
     green_channel = array[:, :, 1]
     image = array.copy()
     image[:, :, 0] = 0
-    image[:, :, 2] = 0
     image[:, :, 1] = green_channel
-    Image.fromarray(image).show()
+    image[:, :, 2] = 0
+    plt.subplot(3, 2, 4)
+    plt.imshow(image)
+    plt.axis('off')
+    plt.title("Figure VIII.4: Green", y=-0.1)
 
 
 def ft_blue(array):
@@ -37,18 +56,24 @@ def ft_blue(array):
     Keeps only the blue channel of the image received.
     """
     blue_channel = array[:, :, 2]
-    image = np.zeros_like(array)
+    image = array.copy()
+    image[:, :, 0] = 0
+    image[:, :, 1] = 0
     image[:, :, 2] = blue_channel
-    Image.fromarray(image).show()
+    plt.subplot(3, 2, 5)
+    plt.imshow(image)
+    plt.axis('off')
+    plt.title("Figure VIII.5: Blue", y=-0.1)
 
 
 def ft_grey(array):
     """
     Converts the image received to grayscale.
     """
-    red_channel = array[:, :, 0] / 3
-    green_channel = array[:, :, 1] / 3
-    blue_channel = array[:, :, 2] / 3
-    grey_channel = red_channel + green_channel + blue_channel
-    grey_image = np.stack([grey_channel, grey_channel, grey_channel], axis=2)
-    Image.fromarray(grey_image.astype(np.uint8)).show()
+    px_mean = np.mean(array, axis=2)
+    image = px_mean
+    plt.subplot(3, 2, 6)
+    plt.imshow(image, cmap='gray')
+    plt.axis('off')
+    plt.title("Figure VIII.6: Grey", y=-0.1)
+    plt.show()

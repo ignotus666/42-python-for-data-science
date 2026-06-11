@@ -19,7 +19,7 @@ def slice_me(family: list, start: int, end: int) -> list:
     else:
         row_len = 0
     if family and not all(isinstance(row, (list, tuple))
-                            and len(row) == row_len for row in family):
+                          and len(row) == row_len for row in family):
         raise ValueError("all rows must have the same length")
 
     arr = np.array(family)

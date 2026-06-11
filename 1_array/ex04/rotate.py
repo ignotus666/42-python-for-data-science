@@ -11,7 +11,7 @@ def main():
         transposed_img = np.array([list(row) for row in zip(*cut_img)])
         print(f"New shape after Transpose: {transposed_img.shape[:2]}")
         print(transposed_img)
-        
+
         plt.imshow(transposed_img, cmap='gray')
         plt.show()
 
