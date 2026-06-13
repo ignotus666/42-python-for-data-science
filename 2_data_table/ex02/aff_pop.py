@@ -45,7 +45,20 @@ def main():
         plt.xticks(range(1800, 2051, 40))
         
         plt.ylim(0, max_pop + 2000000)
-        plt.yticks(range(1, max_pop, 20000000))
+        y_ticks = list(range(0, max_pop + 1, 20000000))
+        y_labels = []
+        for v in y_ticks:
+            if v == 0:
+                y_labels.append("")       # Hides the 0
+            elif v >= 1e9:
+                y_labels.append(f"{int(v / 1e9)}B")
+            elif v >= 1e6:
+                y_labels.append(f"{int(v / 1e6)}M")
+            elif v >= 1e3:
+                y_labels.append(f"{int(v / 1e3)}k")
+            else:
+                y_labels.append(str(int(v)))
+        plt.yticks(y_ticks, y_labels)
 
         plt.title("Population Projections")
         plt.xlabel("Year")
