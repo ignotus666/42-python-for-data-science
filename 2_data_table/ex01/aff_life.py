@@ -1,15 +1,19 @@
 import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
 from load_csv import load
 
 
 def main():
+    """
+    Loads a .csv file with the load function and checks if it
+    has content. Turns the row corresponding to the desired country
+    into a pandas series, turns the index year strings into ints.
+    Then it plots the data in a matplotlib chart.
+    """
     try:
-        data = load("life_expectancy_years.csv")
-        if data is None or not isinstance(data, pd.DataFrame):
+        dataF = load("life_expectancy_years.csv")
+        if dataF is None:
             raise AssertionError("Could not load data from file")
-        country_data = data.loc["Spain"]
+        country_data = dataF.loc["Spain"]
         country_data.index = country_data.index.astype(int)
     except AssertionError as e:
         print("AssertionError:", e)
@@ -25,9 +29,9 @@ def main():
     else:
         country_data.plot()
         plt.xlim(1780, 2120)
-        plt.xticks(np.arange(1800, 2081, 40))
+        plt.xticks(range(1800, 2081, 40))
         plt.ylim(25, 95)
-        plt.yticks(np.arange(30, 91, 10))
+        plt.yticks(range(30, 91, 10))
 
         plt.title("Spain Life expectancy Projections")
         plt.xlabel("Year")
