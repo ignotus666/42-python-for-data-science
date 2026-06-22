@@ -42,8 +42,7 @@ class Lannister(Character):
 
     def __str__(self):
         """Returns readable string, actually calls __repr__"""
-        return (f"Vector: ('{self.family_name}', '{self.eyes}', \
-                '{self.hair}')")
+        return (f"('{self.family_name}', '{self.eyes}', '{self.hair}')")
 
     def __repr__(self):
         """Returns representation for debugging"""
