@@ -1,3 +1,6 @@
+from typing import Any
+
+
 def mean(data, data_len):
     """
     Mean calculated by adding values and dividing
@@ -48,7 +51,7 @@ def std(data, data_len):
     return (std_val)
 
 
-def ft_statistics(*args: any, **kwargs: any) -> None:
+def ft_statistics(*args: Any, **kwargs: Any) -> None:
     """
     Receives an arbitrary number of positional args and keyword args.
     Checks if positional args are numbers and if the value/s are among
