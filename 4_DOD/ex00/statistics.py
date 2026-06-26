@@ -56,7 +56,7 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
     Receives an arbitrary number of positional args and keyword args.
     Checks if positional args are numbers and if the value/s are among
     those there are methods for. If so, it calls the appropriate
-    method/s and prints the result. 
+    method/s and prints the result.
     """
     assert all(isinstance(vals, (int, float)) for vals in args), "ERROR"
 

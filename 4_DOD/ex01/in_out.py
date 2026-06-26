@@ -13,6 +13,8 @@ def outer(x: int | float, function) -> object:
     Initialises the data and returns the inner function
     as an object.
     """
+    if not isinstance(x, (int, float)):
+        raise TypeError("x must be an int or float")
     count = x
 
     def inner() -> float:
